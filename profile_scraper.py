@@ -112,7 +112,7 @@ def get_content(profiles: list, output_file: str = "", start: int = 0,
     """
 
     # prep useful data for later
-    bios = {}
+    bios = []
     end = end if end != -1 else len(profiles)
     content_classes = [".node-uw-ct-person-profile", ".layout-ofis", 
                        ".card__node--profile", ".node--type-uw-ct-profile"]
@@ -138,7 +138,8 @@ def get_content(profiles: list, output_file: str = "", start: int = 0,
                         text = "\n".join(text)
 
                         # Save text under profile id
-                        bios[link.split("/")[-1]] = text
+                        id = link.split("/")[-1]
+                        bios.append({'name': id, 'bio': text})
                         break
         except Exception as e:
             print(e)  # Usually only timeout errors. Unimportant volume of data
@@ -174,11 +175,11 @@ def main():
     )
 
     # Process 100 faculty pages at a time to reduce data loss from crashes
-    master_bios = {}
+    master_bios = []
     for i in range(0, len(profiles), 100):
         end = min(i+100, len(profiles))
         bios = get_content(profiles, f"data/bios{i}_{i+99}.json", i, end)
-        master_bios.update(bios)
+        master_bios += bios
         time.sleep(5) # avoid server blocking requests
 
     # Save all bios to one file
