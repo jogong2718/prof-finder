@@ -1,6 +1,6 @@
 """CREATE_VECTORSTORE.PY
 This script creates a Faiss vectorstore from the faculty bios.
-Dependencies: `dotenv`, `jq`, 'faiss-cpu', `langchain`, `tqdm`
+Dependencies: `dotenv`, 'faiss-cpu', `langchain`, `tqdm`
 """
 
 # Library imports
