@@ -18,4 +18,4 @@ Create a file called `.env` in the downloaded folder and enter your HuggingFace 
 HUGGINGFACEHUB_API_TOKEN=YourTokenHere
 ```
 
-Finally, run `streamlib run frontend.py`
+Finally, run `streamlit run frontend.py`
