@@ -26,9 +26,22 @@ def get_data(path: str) -> list:
     # Load documents
     print("Loading documents...")
     bios = json.load(open(path, "r"))
-    documents = [
-        Document(page_content=b["bio"], metadata={"name": b["name"]}) for b in bios
-    ]
+    documents = []
+    none_count = 0
+
+    for b in bios: 
+        if b["bio"] is not None:
+            documents.append(Document(page_content=b["bio"], metadata={
+                "name": b["name"],
+                "position": b["position"],
+                "email": b["email"],
+                "expertise": b["expertise"],
+                "profile": b["profile"],
+            }))
+        else:
+            none_count += 1
+    
+    print(f"Loaded {len(documents)} documents. {none_count} documents skipped since bio was None")
 
     print(f"Splitting {len(documents)} documents...")
     splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=100)
@@ -61,8 +74,8 @@ def main():
     )
 
     # Get vectorstore
-    fragments = get_data("data/bios.json")
-    get_vectorstore(fragments, model, "data/bios_faiss")
+    fragments = get_data("data_new/json/bios.json")
+    get_vectorstore(fragments, model, "data_new/faiss/bios_faiss")
 
 if __name__ == "__main__":
     main()

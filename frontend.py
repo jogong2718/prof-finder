@@ -29,7 +29,7 @@ st.write("Search for some research topic on the side to find a relevant " +
 with st.sidebar:
     with st.form(key='user_input'):
         query = st.text_input("Research Topic", max_chars=100,
-                              placeholder="Agricultural data science")
+                              placeholder="Data science in forestry")
         submit = st.form_submit_button("Search")
 
 if submit and query:
@@ -41,10 +41,17 @@ if submit and query:
     prof_str = "\n"
     prof_list = []
     for result in results:
-        name = pprint_name(result.metadata['name'])
+        m = result.metadata
+        name = pprint_name(m['name'])
+        position = f"({m['position']})" if m['position'] else ""
+        url = m['profile']
+        if not url:
+            url = f"https://www.google.com/search?q={'+'.join(name.split(' '))}+University+of+Waterloo"
+        
+
         if name not in prof_list:
             prof_list.append(name)
-            prof_str += f"- {name}\n"
+            prof_str += f"- [{name}]({url}) {position}\n"
 
     st.write(prof_str + "\n\n")
 

@@ -24,12 +24,12 @@ def load_embeddings(key: str) -> HuggingFaceInferenceAPIEmbeddings:
     )
 
 def load_db(embeddings: HuggingFaceInferenceAPIEmbeddings, 
-            db_path: str="data/bios_faiss_merged") -> FAISS:
+            db_path: str="data_new/faiss/bios_faiss") -> FAISS:
     """ Load the database from disk """
     
     # Load individual vectorstores
-    base = FAISS.load_local("data/bios_faiss_0", embeddings)
-    others = [FAISS.load_local(f"data/bios_faiss_{i}", embeddings) for i in range(400, 10800, 400)]
+    base = FAISS.load_local(f"{db_path}_0", embeddings)
+    others = [FAISS.load_local(f"{db_path}_{i}", embeddings) for i in range(400, 32000, 400)]
 
     # Merge vectorstores
     for other in others:

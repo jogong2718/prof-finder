@@ -4,7 +4,7 @@ This is an unofficial tool to help contact the right Prof at the University of W
 
 Technically, it's implemented using word embeddings in a vector store. This just means that you don't need to know specialised research buzz words to find the right person to work with. 
 
-![Preview of how the search interface looks](./preview.png)
+![Preview of how the search interface looks](./preview.jpeg)
 
 ### Installation
 **You'll need a HuggingFace API token to run this app**. HuggingFace describes [how to get an API token here](https://huggingface.co/docs/api-inference/quicktour#get-your-api-token).
