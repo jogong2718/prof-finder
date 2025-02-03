@@ -11,9 +11,9 @@ import json
 from tqdm import tqdm
 from dotenv import load_dotenv
 
-from langchain.vectorstores.faiss import FAISS
+from langchain_community.vectorstores import FAISS
 from langchain.docstore.document import Document
-from langchain.embeddings import HuggingFaceInferenceAPIEmbeddings
+from langchain_community.embeddings import HuggingFaceInferenceAPIEmbeddings
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 
 

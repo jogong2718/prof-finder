@@ -7,7 +7,7 @@ Dependencies: `dotenv`, `langchain`, `faiss-cpu`
 import os
 import argparse
 from dotenv import load_dotenv
-from langchain.vectorstores.faiss import FAISS
+from langchain_community.vectorstores import FAISS
 from langchain.embeddings.huggingface import HuggingFaceInferenceAPIEmbeddings
 
 # Load API key
