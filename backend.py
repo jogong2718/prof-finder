@@ -28,8 +28,8 @@ def load_db(embeddings: HuggingFaceInferenceAPIEmbeddings,
     """ Load the database from disk """
     
     # Load individual vectorstores
-    base = FAISS.load_local(f"{db_path}_0", embeddings)
-    others = [FAISS.load_local(f"{db_path}_{i}", embeddings) for i in range(400, 32000, 400)]
+    base = FAISS.load_local(f"{db_path}_0", embeddings, allow_dangerous_deserialization=True)
+    others = [FAISS.load_local(f"{db_path}_{i}", embeddings, allow_dangerous_deserialization=True) for i in range(400, 32000, 400)]
 
     # Merge vectorstores
     for other in others:
