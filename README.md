@@ -11,14 +11,14 @@ Technically, it's implemented using word embeddings in a vector store. This just
 ### Installation
 **You'll need a HuggingFace API token to run this app**. HuggingFace describes [how to get an API token here](https://huggingface.co/docs/api-inference/quicktour#get-your-api-token).
 
-Run `git clone https://github.com/Madhav-Malhotra/uwaterloo-prof-finder` on your terminal to download the Git Respository onto your computer. Then, run `cd uwaterloo-prof-finder`to open the downloaded folder. 
+Go to your folder of choice where you want to store this repo, and run `git clone https://github.com/jogong2718/prof-finder.git` on your terminal to download the Git Respository onto your computer. Then, run `cd uwaterloo-prof-finder`to open the downloaded folder. 
 
 
 # Unix based OS (MacOS or Linux)
-Run `python3 -m venv venv` to create a virtual environment. Then, activate the virtual environment with `source venv/bin/activate`. Next, install project dependencies with `pip3 install requirements.txt`
+Run `python3 -m venv venv` to create a virtual environment. Then, activate the virtual environment with `source venv/bin/activate`. Next, install project dependencies with `pip3 install -r requirements.txt`
 
 # Windows
-Run `python -m venv venv` to create a virtual environment. Then, activate the virtual environment with `venv/bin/activate`. Next, install project dependencies with `pip install -r requirements.txt`
+Run `python -m venv venv` to create a virtual environment. Then, activate the virtual environment with `venv/scripts/activate`. Next, install project dependencies with `pip install -r requirements.txt`
 
 Create a file called `.env` in the downloaded folder and enter your HuggingFace API Token: 
 ```.env
