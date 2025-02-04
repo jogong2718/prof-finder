@@ -8,6 +8,8 @@ Technically, it's implemented using word embeddings in a vector store. This just
 
 ![Preview of how the search interface looks](./preview.jpeg)
 
+![Schematic of the projecy](./schematic.png)
+
 ### Installation
 **You'll need a HuggingFace API token to run this app**. HuggingFace describes [how to get an API token here](https://huggingface.co/docs/api-inference/quicktour#get-your-api-token).
 

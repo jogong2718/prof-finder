@@ -8,7 +8,7 @@ import os
 import argparse
 from dotenv import load_dotenv
 from langchain_community.vectorstores import FAISS
-from langchain.embeddings.huggingface import HuggingFaceInferenceAPIEmbeddings
+from langchain_community.embeddings import HuggingFaceInferenceAPIEmbeddings
 
 # Load API key
 load_dotenv(".env")
